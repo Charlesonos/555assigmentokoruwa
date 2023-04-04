@@ -15,12 +15,12 @@ def compute_top_hash(files):
                         break
                     top_hash.update(chunk)
     return top_hash.hexdigest()
-# Example of using this function
+.# Example of using this function
 files = os.listdir(".") # list all Pathnames of files in the current directory
 top_hash = compute_top_hash(files)
 print("Top Hash:", top_hash)
 
-# If we Modify one or more files the hash value will change.
+.# If we Modify one or more files the hash value will change.
 with open("L1.txt", "a") as f:
     f.write("Adding more data to L1.txt file")
 
