@@ -12,11 +12,11 @@ def compute_top_hash(files):
                     top_hash.update(chunk)
     return top_hash.hexdigest()
 # Example of using this function
-files = os.listdir(".") # list all files in the current directory
+files = os.listdir(".") # list all files in the current directory. This way the program is able to handle thousands of files.
 top_hash = compute_top_hash(files)
 print("Top Hash:", top_hash)
 
-# If we Modify one or more files the hash value will change using the open statement.
+# If we Modify one or more files the hash value will change.
 with open("L1.txt", "a") as f:
     f.write("Adding more data to L1.txt file")
 
@@ -26,5 +26,5 @@ print("Modified Top Hash:", modified_top_hash)
 if top_hash != modified_top_hash:
     print("Top Hash does not match when one or more files are modified")
 else:
-    print("Top Hash matches when files are not modified")
+    print("Top Hash matches when files are not modified") #This will not be the case since the hash value will always change whenever there's a modification.
 
